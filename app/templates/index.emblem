@@ -1,0 +1,6 @@
+linkTo 'users' | Go to the users page
+
+ul
+  each
+    li
+      this

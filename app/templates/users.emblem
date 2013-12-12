@@ -1,0 +1,5 @@
+ul.users-listing
+  each user in controller
+    li #{user.name}
+  else
+    li no users… :-(
