@@ -1,4 +1,5 @@
-Router = Em.Router.extend() # ensure we don't share routes between all Router instances
+# ensure we don't share routes between all Router instances
+Router = Em.Router.extend()
 
 Router.reopen
   location: 'history'
@@ -6,6 +7,7 @@ Router.reopen
 Router.map ->
   @route 'component-test'
   @route 'helper-test'
+  @route 'portfolio'
   @resource 'users', ->
     @resource 'user',
       path: '/:user_id', ->

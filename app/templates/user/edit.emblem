@@ -1,0 +1,19 @@
+.user-edit.form
+  .form-group
+    label.control-label Choose user avatar
+    = input .form-control value=avatarUrl
+
+  .form-group
+    label.control-label User name
+    = input .form-control value=name
+
+  .form-group
+    label.control-label User email
+    = input .form-control value=email
+    
+  .form-group
+    label.control-label User short bio
+    = input .form-control value=bio
+
+  .form-group
+    button.btn.btn-success{action 'save'} Save

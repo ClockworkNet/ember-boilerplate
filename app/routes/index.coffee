@@ -1,5 +1,8 @@
-Index = Ember.Route.extend
+IndexRoute = Em.Route.extend
   model: ->
     ['red', 'yellow', 'blue']
+  activate: ->
+    console.log 'activating index'
+    document.title = 'Home'
 
-`export default Index`
+`export default IndexRoute`

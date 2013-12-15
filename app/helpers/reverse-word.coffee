@@ -5,7 +5,9 @@ For more details: http://stefanpenner.github.io/ember-app-kit/guides/using-modul
 ###
 
 BoundHelper = Em.Handlebars.makeBoundHelper (word) ->
-  word.split('').reverse().join('')
+  word
+    .split('')
+    .reverse()
+    .join('')
 
 `export default BoundHelper`
-

@@ -8,7 +8,9 @@
     "ember-data": "~1.0.0-beta.3",
     "ember-resolver": "git://github.com/stefanpenner/ember-jj-abrams-resolver.git#master",
     "ic-ajax": "~0.1",
-    "emblem.js": "*"
+    "emblem.js": "*",
+    "momentjs": "~2.4.0",
+    "bootstrap"
   },
   "resolutions": {
     "ember": "~1.2.0",

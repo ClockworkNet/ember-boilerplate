@@ -1,5 +1,5 @@
 Helper = Em.Route.extend
   model: ->
-      name: "rebmE"
+    name: "rebmE"
 
 `export default Helper`

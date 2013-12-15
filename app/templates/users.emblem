@@ -1,5 +1,11 @@
-ul.users-listing
-  each user in controller
-    li #{user.name}
-  else
-    li no users… :-(
+.col-sm-4
+  | Users: #{usersCount}
+  ul.users-listing
+    each user in controller
+      li 
+        linkTo 'user' user | #{user.name}
+    else
+      li no users… :-(
+  linkTo 'users.create' .btn.btn-success | Add User
+.col-sm-8
+  outlet
