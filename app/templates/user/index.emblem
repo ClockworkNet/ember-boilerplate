@@ -1,15 +1,15 @@
+= parent
 .col-sm-6
   .user-profile
     img.img-responsive src=avatarUrl alt="User's Avatar"
-    h2 = name
+    h2 = user.name
     span = email
     p = bio
-    span Created #{creationDate}
+    span Created #{format-date creationDate}
     div
       button.btn.btn-primary{action 'edit'} Edit
       button.btn.btn-danger.pull-right{action 'delete'} Delete
 .col-sm-6
-  outlet
 
 .modal.fade#confirm: .modal-dialog: .modal-content
   .modal-header

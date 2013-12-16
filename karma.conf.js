@@ -13,6 +13,7 @@ module.exports = function(config) {
       'vendor/ember/ember.js',
       'vendor/ember-data/ember-data.js',
       'vendor/ic-ajax/main.js',
+      'vendor/momentjs/moment.js',
       'tmp/result/assets/templates.js',
       'tmp/result/assets/app.js',
       'tmp/transpiled/tests/**/*.js',

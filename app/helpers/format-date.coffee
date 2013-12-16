@@ -1,4 +1,4 @@
-FormatDate = Em.Handlebars.helper 'format-date', (date) ->
+BoundHelper = Em.Handlebars.makeBoundHelper (date) ->
   moment(date).fromNow();
 
-`export default FormatDate`
+`export default BoundHelper`

@@ -1,7 +1,6 @@
-UserController = Em.ObjectController.extend
+UserIndexController = Em.ObjectController.extend
 
   actions:
-    
     edit: ->
       @transitionToRoute 'user.edit'
 
@@ -20,4 +19,4 @@ UserController = Em.ObjectController.extend
         .save()
       @transitionToRoute 'users'
 
-`export default UserController`
+`export default UserIndexController`

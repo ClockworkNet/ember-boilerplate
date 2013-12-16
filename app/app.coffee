@@ -9,7 +9,6 @@ App = Ember.Application.extend
   modulePrefix: 'abode' # TODO: loaded via config
   Resolver: Resolver['default']
 
-
 Ember.RSVP.configure 'onerror', (error) ->
   ### ensure unhandled promises raise awareness.
   may result in false negatives, but visibility is more important
