@@ -13,7 +13,7 @@
     "start": "grunt server",
     "build": "grunt build:debug",
     "test": "grunt test:ci",
-    "postinstall" : "postinstall": "bower install; grunt build:dist"
+    "postinstall": "bower install; grunt build:dist"
   },
   "author": "",
   "license": "MIT",
@@ -47,5 +47,9 @@
     "grunt-emblem": "~0.1.0",
     "grunt-contrib-coffee": "~0.7.0",
     "grunt-contrib-htmlmin": "~0.1.3"
+  },
+  "dependencies": {
+    "coffee-script": "~1.6.3",
+    "emblem": "~0.3.9"
   }
 }
