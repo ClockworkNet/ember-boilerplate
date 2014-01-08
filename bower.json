@@ -11,9 +11,5 @@
     "emblem.js": "*",
     "momentjs": "~2.4.0",
     "bootstrap": "~3.0.3"
-  },
-  "resolutions": {
-    "ember": "~1.2.0",
-    "handlebars": "~1.1.2"
   }
 }

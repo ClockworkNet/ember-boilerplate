@@ -1,7 +1,7 @@
 .user-edit.form
   .form-group
     label.control-label Choose user avatar
-    = input .form-control value=avatarUrl
+    = input .form-control value=avatarUrl disabled=true
 
   .form-group
     label.control-label User name
