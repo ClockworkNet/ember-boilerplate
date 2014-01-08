@@ -10,7 +10,7 @@
     "ic-ajax": "~0.1",
     "emblem.js": "*",
     "momentjs": "~2.4.0",
-    "bootstrap"
+    "bootstrap": "~3.0.3"
   },
   "resolutions": {
     "ember": "~1.2.0",
