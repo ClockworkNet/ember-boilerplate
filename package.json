@@ -50,6 +50,8 @@
   },
   "dependencies": {
     "coffee-script": "~1.6.3",
-    "emblem": "~0.3.9"
+    "emblem": "~0.3.9",
+    "bower": "~1.2.8",
+    "grunt": "~0.4.2"
   }
 }
