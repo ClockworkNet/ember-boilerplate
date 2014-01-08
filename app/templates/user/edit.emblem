@@ -1,7 +1,4 @@
 .user-edit.form
-  .form-group
-    label.control-label Choose user avatar
-    = input .form-control value=avatarUrl disabled=true
 
   .form-group
     label.control-label User name
@@ -14,6 +11,10 @@
   .form-group
     label.control-label User short bio
     = input .form-control value=bio
+
+  .form-group
+    label.control-label Gravatar (automatically generated)
+    = input .form-control value=avatarUrl disabled=true
 
   .form-group
     button.btn.btn-success{action 'save'} Save

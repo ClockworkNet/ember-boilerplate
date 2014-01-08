@@ -1,9 +1,8 @@
-= parent
 .col-sm-4
   .user-profile
     img.img-responsive{bindAttr src="avatarUrl"} alt="User's Avatar"
 .col-sm-8
-  h2 = user.name
+  h2 = name
   span = email
   p = bio
   span Created #{format-date creationDate}

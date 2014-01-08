@@ -1,6 +1,6 @@
 .col-sm-4
-  | Users: #{usersCount}
-  ul.users-listing
+  h4 Users: #{usersCount}
+  ul.users-listing.list-unstyled
     each user in controller
       li 
         linkTo 'user' user | #{user.name}
