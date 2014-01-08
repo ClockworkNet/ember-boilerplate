@@ -13,6 +13,7 @@
     "start": "grunt server",
     "build": "grunt build:debug",
     "test": "grunt test:ci",
+    "postinstall" : "postinstall": "bower install; grunt build:dist"
   },
   "author": "",
   "license": "MIT",
