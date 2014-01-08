@@ -13,11 +13,6 @@
     "start": "grunt server",
     "build": "grunt build:debug",
     "test": "grunt test:ci",
-    "postinstall": "bower install; grunt dist"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/stefanpenner/ember-app-kit.git"
   },
   "author": "",
   "license": "MIT",
