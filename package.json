@@ -12,8 +12,7 @@
   "scripts": {
     "start": "grunt server",
     "build": "grunt build:debug",
-    "test": "grunt test:ci",
-    "postinstall": "bower install; grunt dist"
+    "test": "grunt test:ci"
   },
   "author": "",
   "license": "MIT",
