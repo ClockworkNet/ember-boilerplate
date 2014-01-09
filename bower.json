@@ -6,7 +6,7 @@
     "qunit": "~1.12.0",
     "ember": "~1.2.0",
     "ember-data": "~1.0.0-beta.4",
-    "ember-resolver": "https://github.com/stefanpenner/ember-jj-abrams-resolver.git#master",
+    "ember-resolver": "git://github.com/stefanpenner/ember-jj-abrams-resolver.git#master",
     "ic-ajax": "~0.1",
     "emblem.js": "*",
     "momentjs": "~2.4.0",
