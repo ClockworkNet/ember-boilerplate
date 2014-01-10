@@ -7,8 +7,9 @@ UserController = Em.ObjectController.extend
 
     delete: ->
       @toggleProperty 'deleteMode'
-      $('#confirm')
-        .modal('show')
+      # bootstrap call from jquery
+      $ '#confirm'
+        .modal 'show'
 
     cancelDelete: ->
       @set 'deleteMode', false
