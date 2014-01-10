@@ -10,6 +10,8 @@
     "ic-ajax": "~0.1",
     "emblem.js": "*",
     "momentjs": "~2.4.0",
-    "bootstrap": "~3.0.3"
+    "bootstrap": "~3.0.3",
+    "ember-localstorage-adapter": "*",
+    "js-md5": "~1.1.0"
   }
 }

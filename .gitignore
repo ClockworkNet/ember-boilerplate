@@ -7,8 +7,6 @@
 # dependencies
 /node_modules
 /vendor/*
-!/vendor/localstorage-adapter.js
-!/vendor/md5
 !/vendor/loader.js
 
 # misc
