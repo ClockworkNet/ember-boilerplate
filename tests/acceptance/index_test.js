@@ -14,7 +14,7 @@ test('index renders', function(){
 
   visit('/').then(function(){
     var title = find('h2#title');
-    var list = find('ul li');
+    var list = find('.content ul li');
 
     equal(title.text(), 'Welcome to Ember.js');
 

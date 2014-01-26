@@ -1,5 +1,5 @@
-import Application from 'appkit/app';
-import Router from 'appkit/router';
+import Application from 'abode/app';
+import Router from 'abode/router';
 
 function startApp(attrs) {
   var App;

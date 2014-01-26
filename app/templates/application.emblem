@@ -5,7 +5,9 @@ div.navbar.navbar-default
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      linkTo .navbar-brand 'index' | Project name
+      linkTo .navbar-brand 'index'
+        | Project name
+
     .navbar-collapse.collapse
       ul.nav.navbar-nav
         li
@@ -14,6 +16,8 @@ div.navbar.navbar-default
           linkTo 'component-test' | Components
         li
           linkTo 'helper-test' | Helper
+        li
+          linkTo 'machine' | Machine
 
-.container
+.container.content
   outlet 'main'

@@ -5,7 +5,7 @@ function isolatedContainer(fullNames) {
   var resolver = Resolver['default'].create();
 
   resolver.namespace = {
-    modulePrefix: 'appkit'
+    modulePrefix: 'abode'
   };
 
   for (var i = fullNames.length; i > 0; i--) {

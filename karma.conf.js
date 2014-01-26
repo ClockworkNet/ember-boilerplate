@@ -14,7 +14,7 @@ module.exports = function(config) {
       'vendor/ember-data/ember-data.js',
       'vendor/ic-ajax/main.js',
       'vendor/momentjs/moment.js',
-      'vendor/localstorage-adapter.js',
+      'vendor/ember-localstorage-adapter/localstorage_adapter.js',
       'tmp/result/assets/templates.js',
       'tmp/result/assets/app.js',
       'tmp/transpiled/tests/**/*.js',

@@ -19,7 +19,7 @@ test('component output is rendered', function(){
     equal(title.text(), 'Welcome to Ember.js');
 
     equal(list.length, 3);
-    equal(list.first().text(), 'Pretty Color: purple\n');
+    equal(list.first().text(), 'Pretty Color: purple');
   });
 });
 
