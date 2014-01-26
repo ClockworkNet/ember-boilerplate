@@ -50,7 +50,6 @@ MachineController = Em.ObjectController.extend
             all = self.store.all 'device'
             record = all.findBy 'deviceId', device.deviceId
             exists = Boolean record
-            console.log exists
             if exists
               record.set 'name', device.name
 
@@ -70,9 +69,5 @@ MachineController = Em.ObjectController.extend
           for device in devices
 
             sync device
-
-          console.log data
-
-
 
 `export default MachineController`
