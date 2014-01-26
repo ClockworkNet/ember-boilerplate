@@ -1,7 +1,5 @@
 UserController = Em.ObjectController.extend
-
   actions:
-    
     edit: ->
       @transitionToRoute 'user.edit'
 

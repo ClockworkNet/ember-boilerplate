@@ -1,3 +1,5 @@
+`import User from 'abode/models/user'`
+
 UsersRoute = Em.Route.extend
   model: ->
     @store.find('user')

@@ -1,11 +1,12 @@
 User = DS.Model.extend
-  name         : DS.attr()
-  email        : DS.attr()
-  bio          : DS.attr()
+  name         : DS.attr 'string'
+  email        : DS.attr 'string'
+  bio          : DS.attr 'string'
   avatarUrl    : (->
                   "//www.gravatar.com/avatar/" +
                   "#{md5 jQuery.trim @get 'email'}?s=512"
                   ).property 'email'
-  creationDate : DS.attr()
+  creationDate : DS.attr 'date'
+  account      : DS.belongsTo 'account'
 
 `export default User`

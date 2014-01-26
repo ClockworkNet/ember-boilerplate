@@ -1,1 +1,3 @@
-`export default DS.FixtureAdapter.extend()`
+ApplicationAdapter = DS.FixtureAdapter.extend()
+
+`export default ApplicationAdapter`

@@ -8,6 +8,8 @@ Router.map ->
   @route 'component-test'
   @route 'helper-test'
   @route 'portfolio'
+  @resource 'devices'
+  @resource 'machine'
   @resource 'users', ->
     @resource 'user',
       path: '/:user_id', ->

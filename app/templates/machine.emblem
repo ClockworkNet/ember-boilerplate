@@ -1,0 +1,17 @@
+.col-sm-4
+  h4 Devices
+
+.col-sm-8
+  .row
+    .col-sm-12
+      p
+        button.btn.btn-lg.btn-block.btn-default{action 'checkMachine'} Check Machine
+  .row
+    each device in devices
+        div.col-sm-4
+          .panel.panel-default
+            .panel-heading #{device.name}
+            .panel-body
+
+    else
+      div.col-sm-3 no devices :-(

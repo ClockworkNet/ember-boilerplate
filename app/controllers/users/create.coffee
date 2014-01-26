@@ -3,10 +3,18 @@ UsersCreateController = Em.ObjectController.extend
   actions:
     
     save: ->
-      @get('model')
-        .set 'creationDate', new Date()
-      newUser = @store.createRecord 'user', @get 'model'
-      newUser.save()
-      @transitionToRoute 'user', newUser
+      self = @
+      user = @get 'model'
+      user.set 'creationDate', new Date()
+      newUser = @store.createRecord 'user', user
+        # name          : @content.get 'name'
+        # email         : @content.get 'email'
+        # creationDate  : new Date()
+        # bio           : @content.get 'bio'
+
+      newUser
+        .save()
+        .then (model)->
+          self.transitionToRoute 'user', newUser
 
 `export default UsersCreateController`

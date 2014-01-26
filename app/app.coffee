@@ -1,6 +1,6 @@
 `import Resolver from 'resolver'`
 
-App = Ember.Application.extend
+App = Em.Application.extend
   LOG_ACTIVE_GENERATION: true
   LOG_MODULE_RESOLVER: true
   LOG_TRANSITIONS: true
@@ -16,5 +16,23 @@ Ember.RSVP.configure 'onerror', (error) ->
   if error instanceof Error
     Ember.Logger.assert(false, error)
     Ember.Logger.error(error.stack)
+
+DS.DebugAdapter.reopen
+  getModelTypes: ->
+    self = this
+    Em.keys(requirejs._eak_seen).filter (key)->
+      match = key.match /models\//
+      requireModule = self.detect require(key).default
+      !! match and requireModule
+    .map (key)->
+      type = require(key).default
+      typeKey = key.match(/models\/(.*)/)[1]
+      type.toString = (-> typeKey);
+      type
+
+DS.LSAdapter.reopen
+  _namespaceForType: (type)->
+    namespace = Em.String.pluralize type.typeKey || type.toString()
+    this._data[namespace] || this._data[namespace] = records: {}
 
 `export default App`

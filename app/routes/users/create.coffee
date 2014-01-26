@@ -1,3 +1,5 @@
+`import User from 'abode/models/user'`
+
 UsersCreateRoute = Em.Route.extend
   model: ->
     Em.Object.create()

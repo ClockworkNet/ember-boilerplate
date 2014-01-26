@@ -1,0 +1,5 @@
+DevicesIndexRoute = Em.Route.extend
+  model: (params) ->
+    @modelFor 'devices'
+
+`export default DevicesIndexRoute`

@@ -1,12 +1,12 @@
-.user-edit.form
+form.user-edit.form
 
   .form-group
     label.control-label User name
-    = input .form-control value=name
+    = input .form-control value=name name='name'
 
   .form-group
     label.control-label User email
-    = input .form-control value=email
+    = input .form-control value=email name='email'
     
   .form-group
     label.control-label User short bio

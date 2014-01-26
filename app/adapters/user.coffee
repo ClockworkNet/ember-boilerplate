@@ -1,1 +1,4 @@
-`export default DS.LSAdapter.extend()`
+UserAdapter = DS.LSAdapter.extend
+  namespace: 'abode'
+
+`export default UserAdapter`
