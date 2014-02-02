@@ -1,8 +1,9 @@
 MachineController = Em.ObjectController.extend
-  needs: 'devices'
+  needs: ['devices', 'rooms']
   devices: Ember.computed.alias("controllers.devices")
+  rooms: Ember.computed.alias("controllers.rooms")
   actions:
-    checkMachine: ->
+    check: ->
       username = 'drewcovi'
       password = 'connor4wi1'
       self = @
@@ -18,56 +19,104 @@ MachineController = Em.ObjectController.extend
       request
         .done (data) ->
           count = 0
+          queue = $.Deferred( )
 
           # Pull a list of devices from cp.mios
-          devices = for device in data.devices
+          miosdevices = for device in data.devices
             name      : device.name
-            deviceId  : parseInt device.id
+            id        : parseInt device.id
             parent    : device.id_parent
+            room      : parseInt device.room
 
-          rooms = for room in data.rooms
+          miosrooms = for room in data.rooms
             name      : room.name
-            room      : room.id
+            id        : room.id
 
           setparents = ()->
-            for device in devices
-              do (device) ->   
-                all = self.store.find 'device'
+            for device in miosdevices
+              do (device) ->
+                all = self.store.all 'device'
+                rooms = self.store.all 'room'
 
-                all.then ->
-                  record = all.findBy 'deviceId', device.deviceId
-                  parent = all.findBy 'deviceId', device.parent
+                record = all.findBy 'deviceId', device.id
+                parent = all.findBy 'deviceId', device.parent
+                room = rooms.findBy 'roomId', device.room
+                
+
+                if parent
+                  parent.get('children').pushObject record
                   record.set 'parent', parent
-                  record.save()
+                  parent.save()
 
-          setrooms = ()->
-            for room in rooms
+                if room
+                  record.set 'room', room
+                record.save()
+
+          setrooms = () ->
+            for room in miosrooms
               do (room) ->
-                all = self.store.find 'room'
-                # all.then ->
+                all = self.store.all 'device'
+                rooms = self.store.all 'room'
 
-          sync = (device) ->
-            all = self.store.all 'device'
-            record = all.findBy 'deviceId', device.deviceId
-            exists = Boolean record
-            if exists
-              record.set 'name', device.name
+                record = rooms.findBy 'roomId', room.id
 
-            # add new devices to datastore
-            else
-              updates = true
-              record = self.store.createRecord 'device', 
-                name: device.name
-                deviceId: device.deviceId
+                devices = all.filterProperty 'room', record
 
-              record.save()
+                record.get('devices').pushObjects devices
+                record.save()
 
-            count++
-            if count is devices.length
+          syncrooms = ()->
+            record = null
+            records = for room in miosrooms
+              do (room) ->
+
+                all = self.store.all 'room'
+                record  = all.findBy 'roomId', room.id
+
+                exists = Boolean record
+
+                if exists
+                  record.setProperties
+                    name    : room.name
+                    roomId  : room.id
+
+                else
+                  record = self.store.createRecord 'room',
+                    name    : room.name
+                    roomId  : room.id
+                    devices : []
+
+                record.save()
+
+          syncdevices = () ->
+            record = null
+            records = for device in miosdevices
+              do (device) ->
+                all = self.store.all 'device'
+                record = all.findBy 'deviceId', device.id
+                
+                exists = Boolean record
+
+                if exists
+                  record.setProperties
+                    name    : device.name
+                    deviceId: device.id
+
+                # add new devices to datastore
+                else
+                  record = self.store.createRecord \
+                            'device',
+                              name    : device.name
+                              deviceId: device.id
+                              children: []
+                              room    : null
+
+                record.save()
+
+          Em.RSVP
+            .all(syncrooms(), syncdevices())
+            .then ->
               setparents()
-
-          for device in devices
-
-            sync device
+              setrooms()
 
 `export default MachineController`

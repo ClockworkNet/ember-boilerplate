@@ -2,7 +2,7 @@
 
 UsersCreateRoute = Em.Route.extend
   model: ->
-    Em.Object.create()
+    @store.createRecord 'user'
 
   renderTemplate: ->
     @render 'user.edit',

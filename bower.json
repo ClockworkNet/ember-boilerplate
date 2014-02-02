@@ -13,8 +13,5 @@
     "bootstrap": "~3.0.3",
     "ember-localstorage-adapter": "*",
     "js-md5": "~1.1.0"
-  },
-  "resolutions": {
-    "ember": "~1.2.0"
   }
 }

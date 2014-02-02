@@ -35,4 +35,30 @@ DS.LSAdapter.reopen
     namespace = Em.String.pluralize type.typeKey || type.toString()
     this._data[namespace] || this._data[namespace] = records: {}
 
+  createRecord: (store, type, record) ->
+    @_loadData()
+    namespace = this._namespaceForType type
+    @_addRecordToNamespace namespace, record
+    @_saveData()
+    Em.RSVP.resolve()
+
+  updateRecord: (store, type, record) ->
+    @_loadData()
+    namespace = @_namespaceForType type
+    id = record.get 'id'
+    namespace.records[id] = record.toJSON includeId: true
+    this._saveData()
+    Em.RSVP.resolve()
+
+DS.JSONSerializer.reopen
+    serializeHasMany : ( record, json, relationship ) ->
+        key = relationship.key
+        relationshipType = DS
+                            .RelationshipChange
+                            .determineRelationshipType record.constructor, relationship
+
+        if relationshipType is 'manyToNone' or 'manyToMany' or 'manyToOne'
+            json[key] = Em.get(record, key).mapBy('id')
+
+
 `export default App`

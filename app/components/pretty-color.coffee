@@ -5,7 +5,6 @@ PrettyColor = Ember.Component.extend
 
   style: (->
       'color: ' + this.get('name') + ';'
-    )
-    .property('name')
+    ).property('name')
 
 `export default PrettyColor`

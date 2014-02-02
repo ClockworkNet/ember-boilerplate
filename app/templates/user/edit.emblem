@@ -1,20 +1,24 @@
-form.user-edit.form
+div.col-sm-6
+  form.user-edit.form
 
-  .form-group
-    label.control-label User name
-    = input .form-control value=name name='name'
+    .form-group
+      label.control-label User name
+      = input .form-control value=name name='name'
 
-  .form-group
-    label.control-label User email
-    = input .form-control value=email name='email'
-    
-  .form-group
-    label.control-label User short bio
-    = input .form-control value=bio
+    .form-group
+      label.control-label User email
+      = input .form-control value=email name='email'
+      
+    .form-group
+      label.control-label User short bio
+      = textarea .form-control value=bio
 
-  .form-group
-    label.control-label Gravatar (automatically generated)
-    = input .form-control value=avatarUrl disabled=true
+    .form-group
+      label.control-label Gravatar (automatically generated)
+      = input .form-control value=avatarUrl disabled=true
 
-  .form-group
-    button.btn.btn-success{action 'save'} Save
+    .form-group
+      button.btn.btn-success{action 'save'} Save
+
+div.col-sm-6
+  img.img-responsive.img-thumbnail{bindAttr src="avatarUrl"} alt="User's Avatar"
