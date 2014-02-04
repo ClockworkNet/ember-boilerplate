@@ -1,4 +1,3 @@
-RoomAdapter = DS.LSAdapter.extend
-  namespace: 'abode'
+RoomAdapter = DS.VeraAdapter.extend()
 
 `export default RoomAdapter`

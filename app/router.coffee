@@ -9,7 +9,8 @@ Router.map ->
   @route 'helper-test'
   @route 'portfolio'
   @resource 'devices'
-  @resource 'machine'
+  @resource 'rooms'
+  @resource 'sections'
   @resource 'users', ->
     @resource 'user',
       path: '/:user_id', ->

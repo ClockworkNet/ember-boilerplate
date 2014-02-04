@@ -10,6 +10,7 @@ UsersCreateController = Em.ObjectController.extend
       user
         .save()
         .then (model)->
+          # console.log 'done'
           self.transitionToRoute 'user', user
 
 `export default UsersCreateController`

@@ -1,7 +1,7 @@
 Account = DS.Model.extend
   miosun   : DS.attr 'string'
   miospw   : DS.attr 'string'
-  devices  : DS.hasMany 'machine'
+  sections  : DS.hasMany 'sections'
   user     : DS.belongsTo 'user'
 
 `export default Account`

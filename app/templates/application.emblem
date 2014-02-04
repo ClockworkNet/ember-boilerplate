@@ -17,7 +17,7 @@ div.navbar.navbar-default
         li
           linkTo 'helper-test' | Helper
         li
-          linkTo 'machine' | Machine
+          linkTo 'sections' | Sections
 
 .container.content
   outlet 'main'

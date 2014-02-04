@@ -1,3 +1,3 @@
-ApplicationAdapter = DS.FixtureAdapter.extend()
+ApplicationAdapter = DS.VeraAdapter.extend()
 
 `export default ApplicationAdapter`

@@ -1,5 +1,5 @@
 Device = DS.Model.extend
-  deviceId     : DS.attr 'number'
+  # deviceId     : DS.attr 'number'
   name         : DS.attr 'string'
   manufacturer : DS.belongsTo 'manufacturer'
   room         : DS.belongsTo 'room',
@@ -9,15 +9,14 @@ Device = DS.Model.extend
   embedded     : DS.attr 'boolean'
   disabled     : DS.attr 'boolean'
   created      : DS.attr 'date'
-  machine      : DS.belongsTo 'machine'
   states       : DS.hasMany 'state'
-  subcategory  : DS.belongsTo 'subcategory'
+  category     : DS.belongsTo 'category'
   actions      : DS.hasMany 'device/action'
   parent       : DS.belongsTo 'device',
                     inverse: 'children'
   children     : DS.hasMany 'device',
                     inverse: 'parent'
-                    async: true
 
+# Device.url = '/device'
 
 `export default Device`

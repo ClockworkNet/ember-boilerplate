@@ -22,6 +22,7 @@ DS.DebugAdapter.reopen
     self = this
     Em.keys(requirejs._eak_seen).filter (key)->
       match = key.match /models\//
+      console.log key
       requireModule = self.detect require(key).default
       !! match and requireModule
     .map (key)->
@@ -31,24 +32,37 @@ DS.DebugAdapter.reopen
       type
 
 DS.LSAdapter.reopen
-  _namespaceForType: (type)->
-    namespace = Em.String.pluralize type.typeKey || type.toString()
-    this._data[namespace] || this._data[namespace] = records: {}
+  _namespaceForType: (type) ->
+    namespace = this.modelNamespace(type)
+    storage   = localStorage.getItem(this.adapterNamespace())
+    obj       = JSON.parse(storage) if storage
+    data      = obj[namespace] if obj
 
-  createRecord: (store, type, record) ->
-    @_loadData()
-    namespace = this._namespaceForType type
-    @_addRecordToNamespace namespace, record
-    @_saveData()
-    Em.RSVP.resolve()
+    if data
+        data
+      else
+        records:{}
 
-  updateRecord: (store, type, record) ->
-    @_loadData()
-    namespace = @_namespaceForType type
-    id = record.get 'id'
-    namespace.records[id] = record.toJSON includeId: true
-    this._saveData()
-    Em.RSVP.resolve()
+  # modelNamespace: (type) ->
+  #   Em.String.pluralize type.typeKey || type.toString()
+
+
+  # createRecord: (store, type, record) ->
+  #     @_loadData()
+  #     namespaceRecords = this._namespaceForType(type)
+  #     recordHash = record.serialize includeId: true
+  #     namespaceRecords.records[recordHash.id] = recordHash
+  #     this.persistData(type, namespaceRecords)
+  #     Em.RSVP.resolve(record)
+
+
+#   updateRecord: (store, type, record) ->
+#     @_loadData()
+#     namespace = @_namespaceForType type
+#     id = record.get 'id'
+#     namespace.records[id] = record.toJSON includeId: true
+#     this._saveData()
+#     Em.RSVP.resolve()
 
 DS.JSONSerializer.reopen
     serializeHasMany : ( record, json, relationship ) ->

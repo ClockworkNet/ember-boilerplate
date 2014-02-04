@@ -5,4 +5,8 @@ DevicesRoute = Em.Route.extend
   activate: ->
     document.title = 'Devices'
 
+  # setupController: ->
+  #   @controller.set 'rooms', @store.find 'room'
+  #   @_super.apply arguments
+
 `export default DevicesRoute`

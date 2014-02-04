@@ -9,4 +9,6 @@ User = DS.Model.extend
   creationDate : DS.attr 'date'
   account      : DS.belongsTo 'account'
 
+User.url = '/users'
+
 `export default User`
