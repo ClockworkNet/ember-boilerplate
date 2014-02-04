@@ -10,7 +10,8 @@ Router.map ->
   @route 'portfolio'
   @resource 'devices'
   @resource 'rooms'
-  @resource 'sections'
+  @resource 'sections', ->
+    @resource 'section'
   @resource 'users', ->
     @resource 'user',
       path: '/:user_id', ->
