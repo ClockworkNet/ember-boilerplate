@@ -2,9 +2,10 @@ MachineRoute = Em.Route.extend
   model: ->
     @store.find('section')
 
-  # setupController: ->
-  #   @controller.set 'rooms', @store.find 'room'
-  #   @controller.set 'devices', @store.find 'device'
+  setupController: (controller, model)->
+    @_super(controller, model)
+    @controller.set 'rooms', @store.find 'room'
+
 
   activate: ->
     document.title = 'Machines'

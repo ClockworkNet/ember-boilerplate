@@ -10,9 +10,8 @@
     .col-sm-12
       each section in content
         h1 #{section.name}
-        p #{section.rooms.length}
         each room in section.rooms
-          h3 #{room.name} foo
+          h3 #{room.name}
           .row
             each device in room.devices
               div.col-sm-4
