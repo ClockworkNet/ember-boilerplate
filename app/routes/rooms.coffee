@@ -5,8 +5,8 @@ RoomsRoute = Em.Route.extend
   activate: ->
     document.title = 'Rooms'
 
-  setupController: ->
-    @_super(controller, model)
-    @controller.set 'devices', @store.find 'device'
+  # setupController: ->
+  #   @_super(controller, model)
+  #   @controller.set 'devices', @store.find 'device'
 
 `export default RoomsRoute`

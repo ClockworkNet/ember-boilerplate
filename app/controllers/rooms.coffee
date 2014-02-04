@@ -1,6 +1,6 @@
 RoomsController = Em.ArrayController.extend
-  needs: ['devices']
-  devices: Ember.computed.alias("controllers.devices")
+  # needs: ['devices']
+  # devices: Ember.computed.alias("controllers.devices")
   # sortProperties: ['name']
 
   # sortAscending: true

@@ -1,6 +1,6 @@
-SectionsController = Em.ArrayController.extend
-  needs: 'rooms'
-  rooms: Ember.computed.alias("controllers.rooms")
+SectionsController = Em.ArrayController.extend()
+  # needs: 'rooms'
+  # rooms: Ember.computed.alias("controllers.rooms")
 
   # actions:
   #   check: ->

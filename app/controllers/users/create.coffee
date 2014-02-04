@@ -7,10 +7,11 @@ UsersCreateController = Em.ObjectController.extend
       user = @get 'model'
       user.set 'creationDate', new Date()
 
+      console.log user
       user
         .save()
         .then (model)->
-          # console.log 'done'
+          console.log 'done'
           self.transitionToRoute 'user', user
 
 `export default UsersCreateController`

@@ -1,13 +1,12 @@
-MachineRoute = Em.Route.extend
+SectionsRoute = Em.Route.extend
   model: ->
     @store.find('section')
 
-  setupController: (controller, model)->
-    @_super(controller, model)
-    @controller.set 'rooms', @store.find 'room'
-
+  # setupController: (controller, model)->
+  #   @_super(controller, model)
+  #   @controller.set 'rooms', @store.find 'room'
 
   activate: ->
-    document.title = 'Machines'
+    document.title = 'Sections'
 
-`export default MachineRoute`
+`export default SectionsRoute`

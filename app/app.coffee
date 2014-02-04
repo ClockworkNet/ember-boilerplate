@@ -22,57 +22,45 @@ DS.DebugAdapter.reopen
     self = this
     Em.keys(requirejs._eak_seen).filter (key)->
       match = key.match /models\//
-      console.log key
       requireModule = self.detect require(key).default
       !! match and requireModule
     .map (key)->
       type = require(key).default
       typeKey = key.match(/models\/(.*)/)[1]
-      type.toString = (-> typeKey);
+      type.toString = (-> typeKey)
       type
 
 DS.LSAdapter.reopen
-  _namespaceForType: (type) ->
-    namespace = this.modelNamespace(type)
-    storage   = localStorage.getItem(this.adapterNamespace())
-    obj       = JSON.parse(storage) if storage
-    data      = obj[namespace] if obj
+  createRecord: (store, type, record) ->
+    namespaceRecords = this._namespaceForType(type)
+    recordHash = record.serialize includeId: true
 
-    if data
-        data
-      else
-        records:{}
+    namespaceRecords.records[recordHash.id] = recordHash
 
-  # modelNamespace: (type) ->
-  #   Em.String.pluralize type.typeKey || type.toString()
+    this.persistData type, namespaceRecords
+    return Ember.RSVP.resolve()
 
+#   _namespaceForType: (type) ->
+#     namespace = this.modelNamespace(type)
+#     storage   = localStorage.getItem(this.adapterNamespace())
+#     obj       = JSON.parse(storage) if storage
+#     data      = obj[namespace] if obj
 
-  # createRecord: (store, type, record) ->
-  #     @_loadData()
-  #     namespaceRecords = this._namespaceForType(type)
-  #     recordHash = record.serialize includeId: true
-  #     namespaceRecords.records[recordHash.id] = recordHash
-  #     this.persistData(type, namespaceRecords)
-  #     Em.RSVP.resolve(record)
+#     if data
+#         data
+#       else
+#         records:{}
 
 
-#   updateRecord: (store, type, record) ->
-#     @_loadData()
-#     namespace = @_namespaceForType type
-#     id = record.get 'id'
-#     namespace.records[id] = record.toJSON includeId: true
-#     this._saveData()
-#     Em.RSVP.resolve()
+# DS.JSONSerializer.reopen
+#     serializeHasMany : ( record, json, relationship ) ->
+#         key = relationship.key
+#         relationshipType = DS
+#                             .RelationshipChange
+#                             .determineRelationshipType record.constructor, relationship
 
-DS.JSONSerializer.reopen
-    serializeHasMany : ( record, json, relationship ) ->
-        key = relationship.key
-        relationshipType = DS
-                            .RelationshipChange
-                            .determineRelationshipType record.constructor, relationship
-
-        if relationshipType is 'manyToNone' or 'manyToMany' or 'manyToOne'
-            json[key] = Em.get(record, key).mapBy('id')
+#         if relationshipType is 'manyToNone' or 'manyToMany' or 'manyToOne'
+#             json[key] = Em.get(record, key).mapBy('id')
 
 
 `export default App`

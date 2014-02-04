@@ -4,10 +4,6 @@
 .col-sm-8
   .row
     .col-sm-12
-      p
-        button.btn.btn-lg.btn-block.btn-default{action 'check'} Check Machine
-  .row
-    .col-sm-12
       each section in content
         h1 #{section.name}
         each room in section.rooms
