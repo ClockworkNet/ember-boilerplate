@@ -2,9 +2,9 @@ module.exports = {
   dist: {
     files: {
       src: [
-        'dist/assets/app.min.js',
-        'dist/assets/vendor.min.js',
-        'dist/assets/app.min.css'
+        'www/assets/app.min.js',
+        'www/assets/vendor.min.js',
+        'www/assets/app.min.css'
       ]
     }
   }

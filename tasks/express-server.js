@@ -55,8 +55,8 @@ module.exports = function(grunt) {
       // For `expressServer:dist`
 
       app.use(lock);
-      app.use(static({ directory: 'dist' }));
-      app.use(static({ file: 'dist/index.html' })); // Gotta catch 'em all
+      app.use(static({ directory: 'www' }));
+      app.use(static({ file: 'www/index.html' })); // Gotta catch 'em all
     }
 
     var port = process.env.PORT || 8000;

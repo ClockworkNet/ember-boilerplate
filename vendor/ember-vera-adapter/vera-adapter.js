@@ -1,5 +1,8 @@
 DS.VeraAdapter = DS.RESTAdapter.extend({
 
+  login: null,
+
+  password: null,
 
   typeKey: null,
   
@@ -30,14 +33,26 @@ DS.VeraAdapter = DS.RESTAdapter.extend({
       );
   },
   ajax: function(url, type, since, typeKey, ids){
-    var adapter = this;
+    var adapter = this,
+        host = 'https://home.drewcovi.com:3000/cors?resource=',
+        // host = '/cors'
+        url = host+'https%3A%2F%2Ffwd6.mios.com%2F'+
+              this.get('login')+
+              '%2F'+
+              this.get('password')+
+              '%2Fdata_request%3Fid%3Dsdata%26format%3Djson';
+
     if(! typeKey ){
       return false;
     }
 
     return new Ember.RSVP.Promise( function(resolve, reject){
-      var hash = adapter.ajaxOptions(url, type, hash);
 
+      var hash = adapter.ajaxOptions(url, type, hash);
+      // hash.dataType = 'jsonp';
+      // hash.dataType = 'jsonp';
+      // hash.contentType = 'application/json; charset=utf-8';
+      // hash.context = this;
       hash.success = function(json){
         var json    = {
                 devices: json.devices,

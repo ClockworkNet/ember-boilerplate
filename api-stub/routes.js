@@ -1,20 +1,20 @@
 module.exports = function(server) {
 
-  // Create an API namespace, so that the root does not 
-  // have to be repeated for each end point.
 	server.namespace('/api', function() {
 
-    server.get('/cors', function(req, res){
-      var request = require('request');
 
-      request(req.query.url)
-        .pipe(res);
+    server.get('/cors', function(req, res){
+      // var request = require('request');
+
+      // request(req.query.url)
+      //   .pipe(res);
         
-      res
-        .writeHead(200, {
-          'Access-Control-Allow-Origin' : '*',
-          'Content-Type'                : 'application/json'
-      });
+      // res
+      //   .writeHead(200, {
+      //     'Access-Control-Allow-Origin' : '*',
+      //     'Content-Type'                : 'application/json'
+      // });
+ 
     });
 		// Return fixture data for '/api/posts/:id'
 		server.get('/posts/:id', function(req, res) {

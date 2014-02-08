@@ -1,0 +1,15 @@
+2014-02-06 18:37:45.231 Abode[81500:a07] Multi-tasking -> Device: YES, App: YES
+2014-02-06 18:37:45.272 Abode[81500:a07] Unlimited access to network resources
+2014-02-06 18:37:45.850 Abode[81500:a07] Resetting plugins due to page load.
+2014-02-06 18:37:46.395 Abode[81500:a07] Finished load of: file:///Users/drew/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/37F43962-CA88-45BB-906F-2CC04CB86CF0/Abode.app/www/dist/index.html
+objc[70344]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-02-07 14:35:11.147 Abode[70344:80b] Cannot find executable for CFBundle 0xa656b40 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-02-07 14:35:11.186 Abode[70344:80b] Cannot find executable for CFBundle 0xa470d50 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-02-07 14:35:11.267 Abode[70344:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-07 14:35:11.310 Abode[70344:80b] Unlimited access to network resources
+2014-02-07 14:35:11.912 Abode[70344:80b] Resetting plugins due to page load.
+2014-02-07 14:35:12.384 Abode[70344:80b] Finished load of: file:///Users/drew/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/6589B6F6-EC59-40CB-8990-0D99E59FBA73/Abode.app/www/dist/index.html
+2014-02-07 14:50:36.001 Abode[82544:a07] Multi-tasking -> Device: YES, App: YES
+2014-02-07 14:50:36.056 Abode[82544:a07] Unlimited access to network resources
+2014-02-07 14:50:36.141 Abode[82544:a07] Resetting plugins due to page load.
+2014-02-07 14:50:36.651 Abode[82544:a07] Finished load of: file:///Users/drew/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/37F43962-CA88-45BB-906F-2CC04CB86CF0/Abode.app/www/dist/index.html

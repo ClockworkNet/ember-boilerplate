@@ -1,8 +1,8 @@
 # ensure we don't share routes between all Router instances
 Router = Em.Router.extend()
 
-Router.reopen
-  location: 'history'
+# Router.reopen
+#   location: 'history'
 
 Router.map ->
   @route 'component-test'
