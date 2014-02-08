@@ -1,1 +1,7 @@
 /* Put your CSS here */
+
+.navbar-toggle {
+}
+.container > .navbar-header, .container > .navbar-collapse {
+    padding-top: 10px;
+}

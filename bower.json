@@ -11,7 +11,7 @@
     "emblem.js": "*",
     "momentjs": "~2.4.0",
     "bootstrap": "~3.0.3",
-    "ember-localstorage-adapter": "*",
+    "ember-localstorage-adapter": "https://github.com/kurko/ember-localstorage-adapter.git",
     "js-md5": "~1.1.0"
   }
 }

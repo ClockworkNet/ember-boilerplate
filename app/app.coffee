@@ -30,37 +30,4 @@ DS.DebugAdapter.reopen
       type.toString = (-> typeKey)
       type
 
-DS.LSAdapter.reopen
-  createRecord: (store, type, record) ->
-    namespaceRecords = this._namespaceForType(type)
-    recordHash = record.serialize includeId: true
-
-    namespaceRecords.records[recordHash.id] = recordHash
-
-    this.persistData type, namespaceRecords
-    return Ember.RSVP.resolve()
-
-#   _namespaceForType: (type) ->
-#     namespace = this.modelNamespace(type)
-#     storage   = localStorage.getItem(this.adapterNamespace())
-#     obj       = JSON.parse(storage) if storage
-#     data      = obj[namespace] if obj
-
-#     if data
-#         data
-#       else
-#         records:{}
-
-
-# DS.JSONSerializer.reopen
-#     serializeHasMany : ( record, json, relationship ) ->
-#         key = relationship.key
-#         relationshipType = DS
-#                             .RelationshipChange
-#                             .determineRelationshipType record.constructor, relationship
-
-#         if relationshipType is 'manyToNone' or 'manyToMany' or 'manyToOne'
-#             json[key] = Em.get(record, key).mapBy('id')
-
-
 `export default App`
