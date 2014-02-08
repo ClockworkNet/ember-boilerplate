@@ -46,14 +46,12 @@
     "request": "~2.27.0",
     "grunt-emblem": "~0.1.0",
     "grunt-contrib-coffee": "~0.7.0",
-    "grunt-contrib-htmlmin": "~0.1.3"
-  },
-  "dependencies": {
+    "grunt-contrib-htmlmin": "~0.1.3",
     "coffee-script": "~1.7.1",
     "emblem": "~0.3.11",
     "ember-template-compiler": "~1.4.0-beta.1",
     "cordova": "~3.3.1-0.4.1",
     "ios-deploy": "~1.0.4",
     "plugman": "~0.19.0"
-  }
+  },
 }
