@@ -17,5 +17,6 @@ Router.map ->
       path: '/:user_id', ->
         @route 'edit'
     @route 'create'
+  @route 'test'
 
 `export default Router`

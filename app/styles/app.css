@@ -5,3 +5,23 @@
 .container > .navbar-header, .container > .navbar-collapse {
     padding-top: 10px;
 }
+
+.circle {
+    background: black;
+    padding: 10px 16px;
+    border-radius: 50px;
+    -webkit-transition: -webkit-transform ease-out .2s;
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    position: absolute;
+    margin-left: -50px;
+    margin-top: 20px;
+}
+
+.north {
+    -webkit-transform: translate(0,-8px);
+    display: block;
+    color: white;
+    text-align: center;
+}

@@ -1,14 +1,16 @@
-.col-sm-4
-  .user-profile
-    img.img-responsive{bindAttr src="avatarUrl"} alt="User's Avatar"
-.col-sm-8
-  h2 = name
-  span = email
-  p = bio
-  span Created #{format-date creationDate}
-  div
-    button.btn.btn-primary{action 'edit'} Edit
-    button.btn.btn-danger.pull-right{action 'delete'} Delete
+br
+.row
+  .col-sm-4
+    .user-profile
+      img.img-thumbnail.img-responsive{bindAttr src="avatarUrl"} alt="User's Avatar"
+  .col-sm-8
+    h2 = name
+    span = email
+    p = bio
+    span Created #{format-date creationDate}
+    div
+      button.btn.btn-primary{action 'edit'} Edit
+      button.btn.btn-danger.pull-right{action 'delete'} Delete
 
 .modal.fade#confirm: .modal-dialog: .modal-content
   .modal-header

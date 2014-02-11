@@ -62,7 +62,7 @@ module.exports = {
         '!**/*.map' // No source maps
       ],
       filter: 'isFile',
-      dest: 'www/'
+      dest: 'dist/'
     }]
   },
 };

@@ -28,6 +28,17 @@ DS.DebugAdapter.reopen
       type = require(key).default
       typeKey = key.match(/models\/(.*)/)[1]
       type.toString = (-> typeKey)
-      type
+      types
+
+injectScript = (url, onload, onerror) ->
+  script = document.createElement 'script'
+  # onload fires even when script fails loads with an error.
+  script.onload = onload;
+  script.onerror = onerror || onload;
+  script.src = url;
+  document.head.appendChild script
+
+if not document.location.href.match(/^http/)
+  injectScript 'cordova.js'
 
 `export default App`

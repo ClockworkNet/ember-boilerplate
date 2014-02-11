@@ -1,0 +1,12 @@
+button.btn.btn-primary{action 'capture'} Take a Picture
+
+hr
+
+.form-inline
+  .form-group
+    button.btn.btn-primary{action 'direction'}
+      | Track Coordinates
+  .form-group
+    div.circle style=directionInput
+      span.north N
+    / input.form-control. value=directionInput

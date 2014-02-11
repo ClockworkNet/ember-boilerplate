@@ -1,3 +1,3 @@
 module.exports = {
-  html: ['www/index.html'],
+  html: ['dist/index.html'],
 };

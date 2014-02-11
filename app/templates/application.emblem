@@ -5,19 +5,19 @@ div.navbar.navbar-default
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      linkTo .navbar-brand 'index'
+      link-to .navbar-brand 'index'
         | Project name
 
     .navbar-collapse.collapse
       ul.nav.navbar-nav
         li
-          linkTo 'users' | Users
+          link-to 'users' | Users
         li
-          linkTo 'component-test' | Components
+          link-to 'component-test' | Components
         li
-          linkTo 'helper-test' | Helper
+          link-to 'test' | Test Device
         li
-          linkTo 'sections' | Sections
+          link-to 'sections' | Sections
 
 .container.content
   outlet 'main'

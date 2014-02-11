@@ -4,7 +4,7 @@ module.exports = {
       expand: true,
       cwd: 'tmp/result',
       src: '**/*.{png,gif,jpg,jpeg}',
-      dest: 'www/'
+      dest: 'dist/'
     }]
   }
 };
