@@ -1,7 +1,7 @@
-`import User from 'abode/models/user'`
+`import UserRoute from 'abode/routes/user'`
 
-UserIndexRoute = Em.Route.extend
-  model: (params) ->
+UserIndexRoute = UserRoute.extend
+  model: ->
     @modelFor 'user'
 
 `export default UserIndexRoute`

@@ -1,4 +1,5 @@
 TestController = Em.ObjectController.extend
+  needs: 'application'
   directionInput: (->
       "-webkit-transform: rotate(#{@get 'heading' }deg);"
     ).property('heading')

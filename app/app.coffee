@@ -22,13 +22,19 @@ DS.DebugAdapter.reopen
     self = this
     Em.keys(requirejs._eak_seen).filter (key)->
       match = key.match /models\//
+      console.log(key)
       requireModule = self.detect require(key).default
       !! match and requireModule
     .map (key)->
       type = require(key).default
       typeKey = key.match(/models\/(.*)/)[1]
+      console.log 'test'
+      console.log typeKey
       type.toString = (-> typeKey)
-      types
+      type
+
+window.addEventListener 'load', ->
+  FastClick.attach document.body
 
 injectScript = (url, onload, onerror) ->
   script = document.createElement 'script'
@@ -40,5 +46,7 @@ injectScript = (url, onload, onerror) ->
 
 if not document.location.href.match(/^http/)
   injectScript 'cordova.js'
+  StatusBar.overlaysWebView false
+  StatusBar.backgroundColorByHexString '#CC9900'
 
 `export default App`

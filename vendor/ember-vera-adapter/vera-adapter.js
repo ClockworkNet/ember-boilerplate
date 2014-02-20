@@ -1,7 +1,7 @@
 DS.VeraAdapter = DS.RESTAdapter.extend({
 
   login: null,
-
+  
   password: null,
 
   typeKey: null,
@@ -63,7 +63,7 @@ DS.VeraAdapter = DS.RESTAdapter.extend({
               },
             plural   = Em.String.pluralize(typeKey),
             response = {},
-            i, l;
+            i, l, key, record, prop, models, ii;
 
         for(key in json){
           var dataset = json[key];
@@ -73,7 +73,7 @@ DS.VeraAdapter = DS.RESTAdapter.extend({
               for(models in json){
                 if(prop === Em.String.singularize(models)){
                   for(ii=0; ii < json[models].length; ii++){
-                    if(json[models][ii]['id'] == record[prop]){
+                    if(json[models][ii]['id'] === record[prop]){
                       json[models][ii][key] = json[models][ii][key] || [];
                       if(json[models][ii][key].indexOf(record['id']) < 0)
                         json[models][ii][key].push(record['id']);

@@ -3,7 +3,6 @@
 .navbar-toggle {
 }
 .container > .navbar-header, .container > .navbar-collapse {
-    padding-top: 10px;
 }
 
 .circle {
@@ -24,4 +23,12 @@
     display: block;
     color: white;
     text-align: center;
+}
+
+@media (max-width: 768px){
+
+}
+
+.ember-application {
+    padding-bottom: 40px;
 }

@@ -3,9 +3,9 @@
   ul.users-listing.list-unstyled
     each user in controller
       li 
-        linkTo 'user' user | #{user.name}
+        link-to 'user' user | #{user.name}
     else
       li no users… :-(
-  linkTo 'users.create' .btn.btn-success | Add User
+  link-to 'users.create' .btn.btn-success | Add User
 .col-sm-8
   outlet
