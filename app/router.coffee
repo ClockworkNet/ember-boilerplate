@@ -10,6 +10,7 @@ Router.map ->
   @route 'portfolio'
   @resource 'devices'
   @resource 'rooms'
+  @resource 'accounts'
   @resource 'credential', ->
     @route 'types'
   @resource 'sections', ->

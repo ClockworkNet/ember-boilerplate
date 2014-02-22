@@ -1,4 +1,8 @@
 UserIndexController = Em.ObjectController.extend
+  needs: 'application'
+  app: Ember
+          .computed
+          .alias('controllers.application')
 
   actions:
     edit: ->
@@ -18,5 +22,9 @@ UserIndexController = Em.ObjectController.extend
       @get('model')
         .save()
       @transitionToRoute 'users'
+
+    loginAs: ->
+      @get('app')
+        .set('user', @get('model'))
 
 `export default UserIndexController`

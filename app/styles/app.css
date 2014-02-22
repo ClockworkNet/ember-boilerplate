@@ -32,3 +32,6 @@
 .ember-application {
     padding-bottom: 40px;
 }
+.navbar-right .img-responsive {
+    max-height: 50px;
+}

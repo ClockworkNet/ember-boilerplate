@@ -7,11 +7,15 @@ UserEditRoute = UserRoute.extend
   setupController: (controller, model) ->
     route = @
     @store
-      .find('account')
+      .find('account/type')
       .then (data) ->
-        route.controllerFor('accounts').set 'content', data
-      .catch (data) ->
-        console.log data
+        route.controllerFor('account/types').set 'content', data
+
+    @store
+      .find('credential/type')
+      .then (data) ->
+        route.controllerFor('credential/types').set 'content', data
+
 
     @_super.apply this, arguments
 

@@ -1,22 +1,10 @@
 Account = DS.Model.extend
-  name          : DS.attr 'string'
+  type          : DS.attr 'string'
   title         : DS.attr 'string'
-  credentials   : DS.hasMany 'credential/type',
+  user          : DS.belongsTo 'user'
+  credentials   : DS.hasMany 'credential',
                     async: true
 
-# Hard coded mapping of account types and required credentials
-# 
-
-Account.FIXTURES = [
-    id          : 0
-    name        : 'guts'
-    title       : 'Clockwork Guts Account'
-    credentials : [0, 1]
-  ,
-    id          : 1
-    name        : 'mios'
-    title       : 'MiOS Account'
-    credentials : [2, 3]
-]
+Account.url = '/account'
 
 `export default Account`

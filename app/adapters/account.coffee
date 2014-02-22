@@ -1,3 +1,4 @@
-AccountAdapter = DS.FixtureAdapter.extend()
+AccountAdapter = DS.LSAdapter.extend
+  namespace: 'abode'
 
 `export default AccountAdapter`

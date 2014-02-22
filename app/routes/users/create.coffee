@@ -1,6 +1,6 @@
-`import User from 'abode/models/user'`
+`import UserEditRoute from 'abode/routes/user/edit'`
 
-UsersCreateRoute = Em.Route.extend
+UsersCreateRoute = UserEditRoute.extend
   model: ->
     @store.createRecord 'user'
 

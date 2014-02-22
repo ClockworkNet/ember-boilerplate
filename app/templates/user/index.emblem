@@ -4,7 +4,9 @@ br
     .user-profile
       img.img-thumbnail.img-responsive{bindAttr src="avatarUrl"} alt="User's Avatar"
   .col-sm-8
-    h2 = name
+    h2
+      ' #{name}
+      a.btn.btn-xs.btn-success{action 'loginAs'} Log In As
     span = email
     p = bio
     span Created #{format-date creationDate}

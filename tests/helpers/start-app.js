@@ -1,5 +1,5 @@
-import Application from 'abode/app';
-import Router from 'abode/router';
+import Application from 'appkit/app';
+import Router from 'appkit/router';
 
 function startApp(attrs) {
   var App;
@@ -11,14 +11,14 @@ function startApp(attrs) {
     LOG_VIEW_LOOKUPS: false
   }, attrs); // but you can override;
 
-  Ember.run.join(function(){
+  Router.reopen({
+    location: 'none'
+  });
+
+  Ember.run(function(){
     App = Application.create(attributes);
     App.setupForTesting();
     App.injectTestHelpers();
-  });
-
-  Router.reopen({
-    location: 'none'
   });
 
   App.reset(); // this shouldn't be needed, i want to be able to "start an app at a specific URL"

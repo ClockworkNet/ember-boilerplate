@@ -1,46 +1,94 @@
 `import UserController from 'abode/controllers/user'`
 
 UserEditController = UserController.extend
-  needs: 'accounts'
+  needs: 'account/types'
   actions:
     save: ->
       user = @get 'model'
       user.save()
       @transitionToRoute 'user', user
 
+    update: ->
+      user = @get 'model'
+      user.save()
+
     addAccount: ->
       user = @get 'model'
-      user.get('accounts').pushObject(@get('selectedAccount'))
-      user.save()
+      self = @
+      actType = @get('selectedType')
+      fieldTypes = actType.get 'credentialTypes'
+      fields = []
+
+      fieldTypes
+        .then ->
+          fieldTypes.forEach (obj)->
+            field = self
+              .store
+              .createRecord 'credential',
+                type  : obj.get 'type'
+                title : obj.get 'title'
+                protected: obj.get 'protected'
+
+            fields.push(field.save())
+
+      Em.RSVP
+        .all(fields)
+        .then (records) ->
+          account = self.store
+              .createRecord 'account',
+                title       : actType.get 'title'
+                type        : actType.get 'type'
+
+          account
+            .save()
+            .then (record)->
+
+              record
+                .get('credentials')
+                .then (credentials)->
+                  credentials
+                    .pushObjects(fields.getEach 'content')
+                  record
+                    .save()
+
+                .then (record)->
+                  user
+                    .get('accounts')
+                    .then (accounts)->
+                      accounts
+                        .pushObject(record)
+
+                  user.save()
 
     deleteAccount: (account) ->
       user = @get 'model'
       user.get('accounts').removeObject(account)
       user.save()
 
-  allAccounts: Ember
-                .computed
-                .alias('controllers.accounts')
+  types: Ember
+            .computed
+            .alias('controllers.account/types')
 
-  filteredAccounts: (->
-    all = @get 'allAccounts'
-    accounts = @content.get 'accounts'
-    
-    console.log accounts
+  filteredTypes: (->
+    types = @get 'types'
+    user = @get 'content'
 
-    all
+    types
       .filter (item)->
-        console.log accounts.objectAt(0), item
         return true
 
-  ).property('allAccounts.content', 'content')
+  ).property('types.content', 'content').cacheable()
 
   creds: null
 
-  selectedAccount: null
+  inputType: (->
+    console.log this
+  )
+
+  selectedType: null
 
   accountFields: (->
-    @get('selectedAccount').get('credentials')
-  ).observes('selectedAccount')
+    if @get('selectedType') then @get('selectedType').get('credentialTypes')
+  ).property('selectedType').cacheable()
 
 `export default UserEditController`

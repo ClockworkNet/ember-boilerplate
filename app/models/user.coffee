@@ -9,7 +9,6 @@ User = DS.Model.extend
                   "#{md5 jQuery.trim @get 'email'}?s=512"
                   ).property 'email'
   creationDate : DS.attr 'date'
-  account      : DS.belongsTo 'account'
 
 User.url = '/users'
 

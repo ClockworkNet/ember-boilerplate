@@ -1,5 +1,5 @@
 CredentialType = DS.Model.extend
-  name      : DS.attr 'string'
+  type      : DS.attr 'string'
   title     : DS.attr 'string'
   protected : DS.attr 'boolean'
   credentials: DS.hasMany 'credential'
@@ -8,25 +8,25 @@ CredentialType = DS.Model.extend
 # 
 CredentialType.FIXTURES = [
     id          : 0
-    name        : 'gutstoken'
+    type        : 'token'
     protected   : false
     title       : 'Guts Token'
     credentials : null
   ,
     id          : 1
-    name        : 'ldap'
+    type        : 'login'
     protected   : false
-    title       : 'LDAP Login Name'
+    title       : 'LDAP Login type'
     credentials : null
   ,
     id          : 2
-    name        : 'mioslogin'
+    type        : 'login'
     protected   : false
-    title       : 'MiOS Username'
+    title       : 'MiOS Usertype'
     credentials : null
   ,
     id          : 3
-    name        : 'miospassword'
+    type        : 'password'
     protected   : true
     title       : 'MiOS Password'
     credentials : null

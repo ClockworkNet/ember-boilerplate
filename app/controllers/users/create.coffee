@@ -1,4 +1,6 @@
-UsersCreateController = Em.ObjectController.extend
+`import UserEditController from 'abode/controllers/user/edit'`
+
+UsersCreateController = UserEditController.extend
 
   actions:
     

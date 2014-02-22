@@ -1,4 +1,4 @@
-`import Resolver from 'resolver'`
+`import Resolver from 'ember/resolver'`
 
 App = Em.Application.extend
   LOG_ACTIVE_GENERATION: true
@@ -32,6 +32,20 @@ DS.DebugAdapter.reopen
       console.log typeKey
       type.toString = (-> typeKey)
       type
+
+# DS.LSAdapter = DS.LSAdapter.extend
+#   createRecord: (store, type, record)->
+#     @_loadData()
+#     @_super(store, type, record)
+
+#   updateRecord: (store, type, record)->
+#     console.log 'updating record', record.toJSON()
+#     @_loadData()
+#     @_super(store, type, record)
+
+#   deleteRecord: (store, type, record)->
+#     @_loadData()
+#     @_super(store, type, record)
 
 window.addEventListener 'load', ->
   FastClick.attach document.body

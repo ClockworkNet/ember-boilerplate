@@ -24,7 +24,7 @@
 
       .form-group
         label.control-label Accounts
-        Ember.Select .form-control contentBinding='filteredAccounts' prompt='-' optionLabelPath='content.title' selectionBinding='controller.selectedAccount'
+        Ember.Select .form-control contentBinding='filteredTypes' prompt='-' optionLabelPath='content.title' selectionBinding='controller.selectedType'
 
       button.btn.btn-primary{action 'addAccount'} Add Account
 
@@ -35,12 +35,10 @@
         each credential in account.credentials
           .form-group
             label.control-label #{credential.title}
-            = input .form-control
-
-
-
-
-
+            if credential.protected
+              = input .form-control value=credential.value type='password'
+            else
+              = input .form-control value=credential.value
 
   div.col-sm-6
     img.img-responsive.img-thumbnail{bind-attr src="avatarUrl"} alt="User's Avatar"

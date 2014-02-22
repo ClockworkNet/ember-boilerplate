@@ -19,7 +19,12 @@
             link-to 'test' | Test Device
         li
           link-to 'sections' | Sections
-
+      if user
+        .navbar-right.navbar-form
+          a.btn.btn-default.dropdown-toggle
+            span.glyphicon.glyphicon-user.glyphicon
+            user.name
+          / img.img-responsive.img-thumbnail{bind-attr src="user.avatarUrl"} alt="User's Avatar"
 .container.content
   .row
     outlet 'main'

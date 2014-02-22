@@ -2,7 +2,10 @@ Credential = DS.Model.extend
   name         : DS.attr 'string'
   value        : DS.attr 'string'
   protected    : DS.attr 'boolean'
-  user         : DS.belongsTo 'user'
-  type         : DS.belongsTo 'credential/type'
+  title        : DS.attr 'string'
+  account      : DS.belongsTo 'account',
+                    async: true
+
+Credential.url = '/credential'
 
 `export default Credential`
