@@ -47,7 +47,7 @@ UserEditController = UserController.extend
                 .get('credentials')
                 .then (credentials)->
                   credentials
-                    .pushObjects(fields.getEach 'content')
+                    .pushObjects fields.getEach 'content'
                   record
                     .save()
 
@@ -62,22 +62,34 @@ UserEditController = UserController.extend
 
     deleteAccount: (account) ->
       user = @get 'model'
-      user.get('accounts').removeObject(account)
+      user
+        .get('accounts')
+        .removeObject(account)
       user.save()
+
+    saveAccount: (account) ->
+      user = @get 'model'
+      account
+        .get('credentials')
+        .then (credentials)->
+          credentials.save()
 
   types: Ember
             .computed
             .alias('controllers.account/types')
 
   filteredTypes: (->
-    types = @get 'types'
-    user = @get 'content'
 
-    types
-      .filter (item)->
-        return true
+      types = @get 'types'
+      user = @get 'content'
 
-  ).property('types.content', 'content').cacheable()
+      types
+        .filter (item)->
+          return true
+
+    )
+    .property('types.content', 'content')
+    .cacheable()
 
   creds: null
 
@@ -88,7 +100,9 @@ UserEditController = UserController.extend
   selectedType: null
 
   accountFields: (->
-    if @get('selectedType') then @get('selectedType').get('credentialTypes')
+    if @get('selectedType') \
+      then @get('selectedType').get('credentialTypes')
+
   ).property('selectedType').cacheable()
 
 `export default UserEditController`

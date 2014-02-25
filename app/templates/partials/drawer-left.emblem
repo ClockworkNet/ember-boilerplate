@@ -1,0 +1,3 @@
+.drawer-left.drawer.width.collapse
+  ul.nav.nav-pills.nav-stacked
+    = partial 'partials/nav-items'

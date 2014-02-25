@@ -10,14 +10,14 @@ DS.VeraAdapter = DS.RESTAdapter.extend({
     var query;
     return this.ajax(
       this.buildURL(type.typeKey),
-      'GET',
+      'POST',
       sinceToken,
       type.typeKey);
   },
   findMany: function(store, type, ids) {
     return this.ajax(
       this.buildURL(type.typeKey),
-      'GET',
+      'POST',
       null,
       type.typeKey,
       ids
@@ -26,21 +26,16 @@ DS.VeraAdapter = DS.RESTAdapter.extend({
   find: function(store, type, id) {
     return this.ajax(
         this.buildURL(type.typeKey),
-        'GET',
+        'POST',
         null,
         type.typeKey,
         id
       );
   },
   ajax: function(url, type, since, typeKey, ids){
+
     var adapter = this,
-        host = 'https://home.drewcovi.com:3000/cors?resource=',
-        // host = '/cors'
-        url = host+'https%3A%2F%2Ffwd6.mios.com%2F'+
-              this.get('login')+
-              '%2F'+
-              this.get('password')+
-              '%2Fdata_request%3Fid%3Dsdata%26format%3Djson';
+        url     = 'https://home.drewcovi.com:3000/mios';
 
     if(! typeKey ){
       return false;
@@ -49,10 +44,7 @@ DS.VeraAdapter = DS.RESTAdapter.extend({
     return new Ember.RSVP.Promise( function(resolve, reject){
 
       var hash = adapter.ajaxOptions(url, type, hash);
-      // hash.dataType = 'jsonp';
-      // hash.dataType = 'jsonp';
-      // hash.contentType = 'application/json; charset=utf-8';
-      // hash.context = this;
+
       hash.success = function(json){
         var json    = {
                 devices: json.devices,
@@ -107,6 +99,11 @@ DS.VeraAdapter = DS.RESTAdapter.extend({
         Em.run(null, reject, adapter.ajaxError('The server is busy or the url is unset'));
       };
 
+      hash.data = {
+        "login": adapter.get('login'),
+        "password": adapter.get('password')
+      };
+      
       Ember.$.ajax(hash);
 
     }, "DS: RestAdapter#ajax " + type + " to " + url);

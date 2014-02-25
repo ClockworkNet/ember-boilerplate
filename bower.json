@@ -12,7 +12,8 @@
     "momentjs": "~2.4.0",
     "bootstrap": "~3.0.3",
     "ember-localstorage-adapter": "https://github.com/WMeldon/ember-localstorage-adapter.git",
-    "js-md5": "~1.1.0"
+    "js-md5": "~1.1.0",
+    "swiper": "~2.4.3"
   },
   "resolutions": {
     "ember": "~1.5.0"

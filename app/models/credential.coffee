@@ -1,5 +1,5 @@
 Credential = DS.Model.extend
-  name         : DS.attr 'string'
+  type         : DS.attr 'string'
   value        : DS.attr 'string'
   protected    : DS.attr 'boolean'
   title        : DS.attr 'string'

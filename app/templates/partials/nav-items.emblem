@@ -1,0 +1,9 @@
+li
+  link-to 'users' | Users
+li
+  link-to 'component-test' | Components
+if controller.native
+  li
+    link-to 'test' | Test Device
+li
+  link-to 'sections' | MiOS Home
