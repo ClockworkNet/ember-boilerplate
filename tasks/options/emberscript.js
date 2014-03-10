@@ -5,7 +5,7 @@
 // anyway. In EmberScript files, you need to escape out for
 // some ES6 features like import and export. For example:
 //
-// `import User from 'abode/models/user'`
+// `import User from 'clockwork/models/user'`
 //
 // class Post
 //   init: (userId) ->

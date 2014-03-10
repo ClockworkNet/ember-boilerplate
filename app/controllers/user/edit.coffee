@@ -1,4 +1,4 @@
-`import UserController from 'abode/controllers/user'`
+`import UserController from 'clockwork/controllers/user'`
 
 UserEditController = UserController.extend
   needs: 'account/types'

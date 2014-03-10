@@ -1,4 +1,4 @@
 UserAdapter = DS.LSAdapter.extend
-  namespace: 'abode'
+  namespace: 'clockwork'
 
 `export default UserAdapter`

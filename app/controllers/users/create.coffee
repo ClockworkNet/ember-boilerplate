@@ -1,4 +1,4 @@
-`import UserEditController from 'abode/controllers/user/edit'`
+`import UserEditController from 'clockwork/controllers/user/edit'`
 
 UsersCreateController = UserEditController.extend
 

@@ -276,3 +276,12 @@
 .drawer-left.collapse .nav,.drawer-left.collapsing-out .nav {
     -webkit-transform: rotate3d(0,1,0,-90deg);
 }
+
+.drawer-right, .drawer-right.collapse {
+    z-index: 2;
+    background: white;
+    left: 40%;
+    top: 50px;
+    border: 1px solid gray;
+    border-right: 0;
+}

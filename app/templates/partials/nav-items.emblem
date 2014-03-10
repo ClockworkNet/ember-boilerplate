@@ -5,5 +5,3 @@ li
 if controller.native
   li
     link-to 'test' | Test Device
-li
-  link-to 'sections' | MiOS Home

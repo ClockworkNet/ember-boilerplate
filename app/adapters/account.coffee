@@ -1,4 +1,4 @@
 AccountAdapter = DS.LSAdapter.extend
-  namespace: 'abode'
+  namespace: 'clockwork'
 
 `export default AccountAdapter`

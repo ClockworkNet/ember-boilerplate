@@ -1,4 +1,4 @@
-`import UserEditRoute from 'abode/routes/user/edit'`
+`import UserEditRoute from 'clockwork/routes/user/edit'`
 
 UsersCreateRoute = UserEditRoute.extend
   model: ->

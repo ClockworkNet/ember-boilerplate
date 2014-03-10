@@ -1,4 +1,4 @@
-`import User from 'abode/models/user'`
+`import User from 'clockwork/models/user'`
 
 UsersIndexRoute = Em.Route.extend
   model: (params) ->

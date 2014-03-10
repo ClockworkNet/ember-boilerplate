@@ -12,7 +12,7 @@ App = Em.Application.extend
     'hidden.bs.collapse'  : 'hidden.bs.collapse'
     'shown.bs.collapse'   : 'shown.bs.collapse'
 
-  modulePrefix: 'abode' # TODO: loaded via config
+  modulePrefix: 'clockwork' # TODO: loaded via config
   Resolver: Resolver['default']
 
 Ember.RSVP.configure 'onerror', (error) ->

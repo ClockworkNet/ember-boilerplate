@@ -1,10 +1,10 @@
 .navbar.navbar-default.navbar-fixed-top
   .container
     .navbar-header
-      button.navbar-toggle.left type="button" data-toggle="collapse" data-target=".drawer-left"
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
+      / button.navbar-toggle.left type="button" data-toggle="collapse" data-target=".drawer-left"
+      /   span.icon-bar
+      /   span.icon-bar
+      /   span.icon-bar
       link-to .navbar-brand 'index'
         | Project name
 
