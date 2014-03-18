@@ -2,6 +2,8 @@ li
   link-to 'users' | Users
 li
   link-to 'component-test' | Components
+li
+  link-to 'posts' | Posts
 if controller.native
   li
     link-to 'test' | Test Device

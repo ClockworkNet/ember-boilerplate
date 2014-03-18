@@ -1,11 +1,5 @@
-UsersIndexController = Em.ArrayController.extend
+`import UsersController from 'clockwork/controllers/users'`
 
-  sortProperties: ['name']
-
-  sortAscending: true
-  
-  usersCount: (->
-    @get('model.length')
-  ).property('@each')
+UsersIndexController = UsersController.extend()
 
 `export default UsersIndexController`

@@ -38,6 +38,51 @@ DS.DebugAdapter.reopen
 
 # DS.LSAdapter = DS.LSAdapter.extend
 
+DS.Model.reopenClass
+  toString: ->
+    @typeKey
+
+DS.IndexedDBAdapter = DS.IndexedDBAdapter.extend
+
+  deleteRecord: (store, type, record) ->
+    _this = this;
+
+    new Ember.RSVP.Promise (resolve, reject) ->
+      modelName = type.toString()
+      serializedRecord = record.serialize({includeId: true})
+      id = serializedRecord.id
+
+      _this
+        .openDatabase()
+        .then (db) ->
+          transaction = db.transaction modelName, "readwrite"
+
+          transaction.onerror = (event) ->
+            Em.run ()->
+              console.error('transaction error: ' + event) if Ember.testing
+
+          transaction.onabort = (event) ->
+            Em.run () ->
+              console.error('transaction aborted: ' + event) if Ember.testing
+
+          objectStore = transaction.objectStore(modelName)
+
+          transaction.oncomplete = (t) ->
+              resolve()
+              db.close()
+
+          id = parseInt(id) if objectStore.autoIncrement
+
+          operation = objectStore.delete(id)
+          operation.onsuccess = (event) ->
+            db.close()
+            resolve()
+
+          operation.onerror = (event) ->
+            Em.run ()->
+              db.close()
+              reject(event.target.result)
+
 window.addEventListener 'load', ->
   FastClick.attach document.body
 

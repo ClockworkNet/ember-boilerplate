@@ -1,10 +1,11 @@
 = partial 'partials/drawer-left'
 .viewport
-  if native
+  if isNative
     .status-bar
   = partial 'partials/navbar'
   .container.content
     .row
       outlet 'main'
 = partial 'partials/drawer-right'
-= partial 'partials/modal'
+
+modal-dialog cancel='dialogCancel' confirm='dialogConfirm' active=dialogActive content=dialog.content title=dialog.title cancelTitle=dialog.cancelTitle confirmTitle=dialog.confirmTitle

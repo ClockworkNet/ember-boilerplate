@@ -5,6 +5,6 @@ Account = DS.Model.extend
   credentials   : DS.hasMany 'credential',
                     async: true
 
-Account.url = '/account'
+Account.typeKey = 'account'
 
 `export default Account`

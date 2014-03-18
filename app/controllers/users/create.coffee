@@ -5,15 +5,22 @@ UsersCreateController = UserEditController.extend
   actions:
     
     save: ->
-      self = @
-      user = @get 'model'
+      controller           = @
+      user                 = @get 'model'
+      # user                 = @store.createRecord 'user'
+      relationships        = @saveRelationships(user)
+
       user.set 'creationDate', new Date()
 
-      console.log user
-      user
-        .save()
-        .then (model)->
-          console.log 'done'
-          self.transitionToRoute 'user', user
+      user.save()
+
+      Em.RSVP.all(relationships, user)
+        .then ->
+          controller.transitionToRoute 'user', user
+      # user
+      #   .save()
+      #   .then (model)->
+      #     console.log 'done'
+      #     self.transitionToRoute 'user', user
 
 `export default UsersCreateController`

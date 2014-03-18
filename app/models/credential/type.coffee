@@ -16,19 +16,7 @@ CredentialType.FIXTURES = [
     id          : 1
     type        : 'login'
     protected   : false
-    title       : 'LDAP Login type'
-    credentials : null
-  ,
-    id          : 2
-    type        : 'login'
-    protected   : false
-    title       : 'MiOS Usertype'
-    credentials : null
-  ,
-    id          : 3
-    type        : 'password'
-    protected   : true
-    title       : 'MiOS Password'
+    title       : 'LDAP Username'
     credentials : null
 ]
 

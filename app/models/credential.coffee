@@ -6,6 +6,6 @@ Credential = DS.Model.extend
   account      : DS.belongsTo 'account',
                     async: true
 
-Credential.url = '/credential'
+Credential.typeKey = 'credential'
 
 `export default Credential`

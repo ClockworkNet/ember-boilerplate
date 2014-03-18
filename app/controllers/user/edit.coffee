@@ -2,17 +2,54 @@
 
 UserEditController = UserController.extend
   needs: 'account/types'
+
+  saveRelationships: (parent)->
+
+    relationshipPromises = []
+    relationships = false
+    controller = @
+
+    parent
+      .eachRelationship (name, relationship)->
+        console.log name, relationship
+        return unless relationship.kind is 'hasMany'
+        relationships = true
+        children = parent.get(name)
+
+        relationshipPromises.push(
+            children
+              .then (results)->
+                results.forEach (result)->
+                  controller.saveRelationships(result)
+                  console.log 'persisting changes to', result, result.id
+                  result.save()
+
+        )
+
+    relationshipPromises.push(parent) unless relationships
+
+    relationshipPromises #returns the promises
+
   actions:
+    
     save: ->
-      user = @get 'model'
+      user                 = @get 'model'
+      controller           = @
+      relationships        = @saveRelationships(user)
+
       user.save()
-      @transitionToRoute 'user', user
+
+      Em.RSVP.all(relationships, user)
+        .then ->
+          controller.transitionToRoute 'user', user
 
     update: ->
+
       user = @get 'model'
       user.save()
 
     addAccount: ->
+
       user = @get 'model'
       self = @
       actType = @get('selectedType')
@@ -42,7 +79,6 @@ UserEditController = UserController.extend
           account
             .save()
             .then (record)->
-
               record
                 .get('credentials')
                 .then (credentials)->
@@ -51,28 +87,14 @@ UserEditController = UserController.extend
                   record
                     .save()
 
-                .then (record)->
+                .then ()->
                   user
                     .get('accounts')
                     .then (accounts)->
                       accounts
                         .pushObject(record)
 
-                  user.save()
-
-    deleteAccount: (account) ->
-      user = @get 'model'
-      user
-        .get('accounts')
-        .removeObject(account)
-      user.save()
-
-    saveAccount: (account) ->
-      user = @get 'model'
-      account
-        .get('credentials')
-        .then (credentials)->
-          credentials.save()
+                  # user.save() #no saving until we save the user
 
   types: Ember
             .computed

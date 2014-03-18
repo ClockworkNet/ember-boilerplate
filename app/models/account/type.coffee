@@ -12,11 +12,6 @@ AccountType.FIXTURES = [
     type        : 'guts'
     title       : 'Clockwork Guts Account'
     credentialTypes : [0, 1]
-  ,
-    id          : 2
-    type        : 'mios'
-    title       : 'MiOS Account'
-    credentialTypes : [2, 3]
 ]
 
 `export default AccountType`
