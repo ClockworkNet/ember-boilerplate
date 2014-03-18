@@ -1,5 +1,6 @@
 PostsAdapter = DS.RESTAdapter.extend
-  host: 'http://drewcovi.local/api'
+
+  # host: 'http://WORDPRESS_SITE_URL/api'
 
   buildURL: (type, id) ->
     url = []
